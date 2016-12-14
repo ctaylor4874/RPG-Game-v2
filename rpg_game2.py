@@ -1,6 +1,6 @@
-#RPG Game built with Python
 import random
 import time
+import random
 
 
 class Character(object):
@@ -13,7 +13,7 @@ class Character(object):
         return self.health > 0
 
     def attack(self, enemy):
-        if not self.alive:
+        if not self.alive():
             hero.coins += self.bounty
             print "Hero receives %d bounty coins for killing %s." % (self.bounty, self.name)
             return
@@ -218,7 +218,7 @@ class Battle(object):
         print "====================="
         print "Hero faces the %s" % enemy.name
         print "====================="
-        while hero.alive and enemy.alive:
+        while hero.alive() and enemy.alive():
             hero.print_status()
             enemy.print_status()
             time.sleep(1.5)
@@ -240,7 +240,7 @@ class Battle(object):
                 print "Invalid input %r" % input
                 continue
             enemy.attack(hero)
-        if hero.alive:
+        if hero.alive():
             print "You defeated the %s" % enemy.name
             return True
         else:
