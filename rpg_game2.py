@@ -1,6 +1,6 @@
 import random
 import time
-import random
+from random import randint
 
 
 class Character(object):
